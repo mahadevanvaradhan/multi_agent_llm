@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  appapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    env_file: .env
+    command: uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - .:/usr/local/chatbot  # Mount project directory for code access
+    ports:
+      - "8884:8888"
+      - "7286:7282"
+      - "8000:8000"
+      - "7860:7860"
+    networks:
+      - app-network1
+    depends_on:
+      - postgresapi
+    restart: on-failure
+
+  postgresapi:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: postgrespdf
+    ports:
+      - "5436:5432"
+    env_file: .env
+    networks:
+      - app-network1
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data  # Persistent PostgreSQL data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    restart: always
+
+networks:
+  app-network1:
+
+volumes:
+  postgres-data:

@@ -1,0 +1,142 @@
+[
+    {
+      "product_name": "Apple iPhone 15 Pro",
+      "description": "The latest flagship smartphone from Apple, featuring a powerful A17 Bionic chip, a stunning Super Retina XDR display, and a triple-lens camera system.",
+      "usage": "Communication, entertainment, productivity, and more.",
+      "summary": "The iPhone 15 Pro is a premium smartphone that offers top-of-the-line performance, features, and design.",
+      "cost": 999
+    },
+    {
+      "product_name": "Sony WH-1000XM5 Noise-Canceling Headphones",
+      "description": "Industry-leading noise-canceling headphones with exceptional sound quality and comfortable fit.",
+      "usage": "Listening to music, watching movies, and making calls.",
+      "summary": "The Sony WH-1000XM5 headphones are a great choice for anyone who wants the best possible noise-canceling and sound quality.",
+      "cost": 399
+    },
+    {
+      "product_name": "Dyson V15 Detect Cordless Vacuum",
+      "description": "A powerful cordless vacuum with advanced laser dust detection and self-adjusting suction.",
+      "usage": "Cleaning floors, carpets, and furniture.",
+      "summary": "The Dyson V15 Detect is a high-performance vacuum cleaner that is perfect for keeping your home clean and dust-free.",
+      "cost": 699
+    },
+    {
+      "product_name": "Instant Pot Duo Nova 7-in-1 Electric Pressure Cooker",
+      "description": "A versatile kitchen appliance that can be used for pressure cooking, slow cooking, rice cooking, yogurt making, and more.",
+      "usage": "Cooking a variety of dishes quickly and easily.",
+      "summary": "The Instant Pot Duo Nova is a great choice for busy home cooks who want to save time and effort in the kitchen.",
+      "cost": 149
+    },
+    {
+      "product_name": "Nintendo Switch",
+      "description": "A hybrid gaming console that can be played on the TV or as a handheld device.",
+      "usage": "Playing video games at home or on the go.",
+      "summary": "The Nintendo Switch is a great choice for gamers of all ages who want a versatile and fun gaming experience.",
+      "cost": 299
+    },
+    {
+      "product_name": "Apple Watch Series 8",
+      "description": "A premium smartwatch with advanced health and fitness tracking features, including ECG, blood oxygen monitoring, and fall detection.",
+      "usage": "Fitness tracking, health monitoring, communication, and entertainment.",
+      "summary": "The Apple Watch Series 8 is a powerful and versatile smartwatch that can help you stay connected, healthy, and active.",
+      "cost": 399
+    },
+    {
+      "product_name": "Samsung Galaxy S23 Ultra",
+      "description": "A high-end Android smartphone with a powerful processor, a stunning display, and an impressive camera system.",
+      "usage": "Communication, entertainment, productivity, and more.",
+      "summary": "The Samsung Galaxy S23 Ultra is a top-of-the-line Android smartphone that offers a premium user experience.",
+      "cost": 1199
+    },
+    {
+      "product_name": "Sony PlayStation 5",
+      "description": "A powerful gaming console with stunning graphics and immersive gameplay.",
+      "usage": "Playing video games.",
+      "summary": "The PlayStation 5 is a must-have for any serious gamer.",
+      "cost": 499
+    },
+    {
+      "product_name": "Bose QuietComfort Earbuds II",
+      "description": "Premium wireless earbuds with excellent noise cancellation and high-fidelity sound.",
+      "usage": "Listening to music, making calls, and enjoying immersive audio experiences.",
+      "summary": "The Bose QuietComfort Earbuds II are a top choice for audiophiles and anyone who wants the best possible wireless earbuds.",
+      "cost": 299
+    },
+    {
+      "product_name": "Instant Pot Duo Crisp",
+      "description": "A versatile kitchen appliance that combines the functions of a pressure cooker, air fryer, steamer, slow cooker, and more.",
+      "usage": "Cooking a wide variety of dishes, from soups and stews to roasted vegetables and fried chicken.",
+      "summary": "The Instant Pot Duo Crisp is a convenient and versatile kitchen appliance that can help you save time and effort in the kitchen.",
+      "cost": 179
+    },
+    {
+      "product_name": "Ninja Foodi 2-in-1 Indoor Grill with Air Fry",
+      "description": "A versatile kitchen appliance that can be used for grilling, baking, roasting, air frying, and dehydrating.",
+      "usage": "Cooking a variety of dishes, from steaks and burgers to roasted vegetables and even desserts.",
+      "summary": "The Ninja Foodi 2-in-1 is a great choice for those who want a versatile and easy-to-use kitchen appliance.",
+      "cost": 199
+    },
+    {
+      "product_name": "Keurig K-Mini Plus Single-Serve K-Cup Pod Coffee Maker",
+      "description": "A compact and affordable single-serve coffee maker that is perfect for small spaces.",
+      "usage": "Brewing coffee quickly and easily.",
+      "summary": "The Keurig K-Mini Plus is a great choice for anyone who wants a simple and convenient way to brew coffee.",
+      "cost": 89
+    },
+    {
+      "product_name": "Nespresso VertuoPlus Deluxe Coffee & Espresso Machine",
+      "description": "A premium coffee machine that brews both espresso and coffee.",
+      "usage": "Brewing coffee and espresso at home.",
+      "summary": "The Nespresso VertuoPlus Deluxe is a great choice for coffee lovers who want to enjoy high-quality coffee at home.",
+      "cost": 199
+    },
+    {
+      "product_name": "Breville Barista Express Espresso Machine",
+      "description": "A high-end espresso machine that allows you to grind your own beans and create barista-quality coffee at home.",
+      "usage": "Brewing espresso and other coffee drinks at home.",
+      "summary": "The Breville Barista Express is a great choice for coffee enthusiasts who want to experience the art of espresso making at home.",
+      "cost": 999
+    },
+    {
+      "product_name": "Fitbit Charge 5",
+      "description": "A fitness tracker that monitors your heart rate, sleep, and activity levels.",
+      "usage": "Fitness tracking, health monitoring, and sleep tracking.",
+      "summary": "The Fitbit Charge 5 is a great choice for anyone who wants to track their fitness and health goals.",
+      "cost": 149
+    },
+    {
+      "product_name": "Apple AirPods Pro (2nd generation)",
+      "description": "Premium wireless earbuds with active noise cancellation, adaptive transparency, and spatial audio.",
+      "usage": "Listening to music, making calls, and enjoying immersive audio experiences.",
+      "summary": "The AirPods Pro (2nd generation) are a top choice for anyone who wants high-quality wireless earbuds with advanced features.",
+      "cost": 249
+    },
+    {
+      "product_name": "Amazon Echo Show 15",
+      "description": "A smart display with a large screen that can be used for video calls, watching videos, listening to music, and controlling smart home devices.",
+      "usage": "Smart home control, entertainment, communication, and information.",
+      "summary": "The Echo Show 15 is a great choice for anyone who wants a smart display for their home.",
+      "cost": 249
+    },
+    {
+      "product_name": "Google Nest Hub Max",
+      "description": "A smart display with a built-in Google Assistant that can be used for a variety of tasks, such as controlling smart home devices, playing music, and making video calls.",
+      "usage": "Smart home control, entertainment, communication, and information.",
+      "summary": "The Google Nest Hub Max is a great choice for anyone who wants a versatile smart display with Google Assistant integration.",
+      "cost": 199
+    },
+    {
+      "product_name": "iRobot Roomba i7+ (with Clean Base Automatic Dirt Disposal)",
+      "description": "A robotic vacuum cleaner that automatically empties its dustbin into a base station.",
+      "usage": "Cleaning floors and carpets.",
+      "summary": "The Roomba i7+ is a convenient and effective way to keep your floors clean without lifting a finger.",
+      "cost": 799
+    },
+    {
+      "product_name": "eufy RoboVac 11S MAX",
+      "description": "An affordable robotic vacuum cleaner that offers excellent value for money.",
+      "usage": "Cleaning floors and carpets.",
+      "summary": "The eufy RoboVac 11S",
+      "cost": 200
+    }
+]

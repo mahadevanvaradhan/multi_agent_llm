@@ -1,0 +1,32 @@
+[
+    {
+      "order_id": "ORD1001",
+      "userid": 1,
+      "product": "Laptop",
+      "cost": 1200,
+      "quantity": 1,
+      "order_date": "2024-12-20",
+      "shipment_id": "SHP123",
+      "order_status": "Shipped" 
+    },
+    {
+      "order_id": "ORD1002",
+      "userid": 2,
+      "product": "Phone",
+      "cost": 800,
+      "quantity": 2,
+      "order_date": "2024-12-19",
+      "shipment_id": "SHP456",
+      "order_status": "Delivered" 
+    },
+    {
+      "order_id": "ORD1003",
+      "userid": 3,
+      "product": "Book",
+      "cost": 200,
+      "quantity": 3,
+      "order_date": "2024-12-18",
+      "shipment_id": "SHP789",
+      "order_status": "Out for Delivery" 
+    }
+  ]
