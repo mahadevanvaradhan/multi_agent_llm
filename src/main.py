@@ -288,4 +288,8 @@ async def anthropic_knowledge_function_call(user_query, knowledge_base=product_d
         None,
     )
 
+    # print(f"\nFinal Response: {final_response}")
+
+    # history.append((user_query, final_response))
+
     return final_response
