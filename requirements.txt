@@ -23,5 +23,6 @@ voyageai
 pinecone
 neo4j
 html2text
+IPython
 
 
