@@ -62,7 +62,7 @@ celerybeat.pid
 
 # macOS
 .DS_Store
-**/postgres_data/*
+**/postgres_data
 
 # Windows
 Thumbs.db
@@ -100,6 +100,7 @@ dmypy.json
 .env
 .env.*
 .secret
+**/config.ini
 
 # Pyre type checker
 .pyre/

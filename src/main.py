@@ -12,9 +12,12 @@ import uuid
 import requests
 import json
 
+from src.models.products import Product
 from src.models.orders import Order, load_orders_from_json
-from src.models.tracker import Shipment, load_shipments_from_json, load_products_from_json
+from src.models.tracker import Shipment, load_shipments_from_json
 from src.models.anthropic_llm import anthropic_llm
+from src.utils.voyage_operators import voyageai_embed_document
+from src.utils.postgres_operators import query_pgvector
 
 OPEN_API_KEY = os.getenv("OPEN_API_KEY")
 ANTHROPIC_API_KEY = os.getenv('ANTHROPIC_API_KEY')
@@ -33,75 +36,26 @@ order_data = load_orders_from_json("/usr/local/chatbot/src/data/order.json")  # 
 shipment_data = load_shipments_from_json("/usr/local/chatbot/src/data/tracker.json") 
 
 # Load product data from JSON file
-product_data = load_products_from_json("/usr/local/chatbot/src/data/product.json") 
-
-tools = [
-        {
-        "name": "get_orders",
-        "description": "This function is used to provide details of a specific order by its unique Order ID. \
-                        It includes details like User ID, Product Name, Cost, Quantity of order, Order Date, Shipment ID and current Status Of Order.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "order_id": {
-                    "type": "string",
-                    "description": "The Order ID of the order."
-                }
-            },
-            "required": ["order_id"]
-        }
-    },
-    {
-        "name": "get_shipment_history",
-        "description": "This function is used to provide complete details of shipment history for a Shipment ID. \
-            It helps to track an order from the date it is ordered and different stages of shippment involved ducring package shipments. \
-            It also provides each stages of shipment like packed, dispatched, out for delivery, delivered, and returned along with date.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "shipment_id": {
-                    "type": "string",
-                    "description": "The Shipment ID of the shipment."
-                }
-            },
-            "required": ["shipment_id"]
-        }
-    },
-    {
-        "name": "get_order_with_shipment_history",
-        "description": "This function is used to provide complete details of Order and shipment history for a Provide Order ID.",
-        "input_schema": {
-            "type": "object",
-            "properties": {
-                "order_id": {
-                    "type": "string",
-                    "description": "The Order ID of the order."
-                }
-            },
-            "required": ["order_id"]
-        }
-    }
-]
-
+# product_data = load_products_from_json("/usr/local/chatbot/src/data/product.json") 
 
 @app.get("/hello")
 def index():
     return "WELCOME TO FAST API"
 
-@app.get("/products")
-async def get_all_products():
-    """
-    Fetches all products information.
+# @app.get("/products")
+# async def get_all_products():
+#     """
+#     Fetches all products information.
 
-    Args:
-        No args.
+#     Args:
+#         No args.
 
-    Returns:
-        The product details as a JSON object.
-    """
-    product_data = load_products_from_json("/usr/local/chatbot/src/data/product.json") 
+#     Returns:
+#         The product details as a JSON object.
+#     """
+#     product_data = load_products_from_json("/usr/local/chatbot/src/data/product.json") 
 
-    return product_data
+#     return product_data
 
 @app.get("/orders/{order_id}")
 async def get_orders(order_id: str):
@@ -188,7 +142,7 @@ async def anthropic_ai_chat(user_query: str):
     Returns:
         A dictionary containing the response.
     """
-    response = anthropic_llm(anthropic_client, user_query, product_data)
+    response = anthropic_llm(anthropic_client, user_query, model="claude-3-sonnet-20240229")
     return response
 
 
@@ -202,8 +156,65 @@ async def process_tool_call(tool_name, tool_input):
     else:
         raise ValueError(f"Unknown tool: {tool_name}")
 
-@app.post("/anthropic_ai_toolchat")
-async def anthropic_knowledge_function_call(user_query, knowledge_base=product_data, tools=tools):
+
+
+@app.post("/anthropic_agent_multifunction")
+async def anthropic_agent_multifunction(user_query):
+
+    query_embedding = voyageai_embed_document(user_query)
+
+    content = query_pgvector(query_embedding)
+    # Convert the results to Document objects for LlamaIndex
+    knowledge_base = [item[0] for item in content]
+
+    tools = [
+                {
+                "name": "get_orders",
+                "description": "This function is used to provide details of a specific order by its unique Order ID. \
+                                It includes details like User ID, Product Name, Cost, Quantity of order, Order Date, Shipment ID and current Status Of Order.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "order_id": {
+                            "type": "string",
+                            "description": "The Order ID of the order."
+                        }
+                    },
+                    "required": ["order_id"]
+                }
+            },
+            {
+                "name": "get_shipment_history",
+                "description": "This function is used to provide complete details of shipment history for a Shipment ID. \
+                    It helps to track an order from the date it is ordered and different stages of shippment involved ducring package shipments. \
+                    It also provides each stages of shipment like packed, dispatched, out for delivery, delivered, and returned along with date.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "shipment_id": {
+                            "type": "string",
+                            "description": "The Shipment ID of the shipment."
+                        }
+                    },
+                    "required": ["shipment_id"]
+                }
+            },
+            {
+                "name": "get_order_with_shipment_history",
+                "description": "This function is used to provide complete details of Order and shipment history for a Provide Order ID.",
+                "input_schema": {
+                    "type": "object",
+                    "properties": {
+                        "order_id": {
+                            "type": "string",
+                            "description": "The Order ID of the order."
+                        }
+                    },
+                    "required": ["order_id"]
+                }
+            }
+        ]
+
     prompt = f"""
     You are a support assistant. 
     Your job is to answer user queries based on the following knowledge base and use available tools when required.
